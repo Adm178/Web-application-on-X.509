@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Восстановление</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+        <style>
+        body
+        {
+            background-image: url("{{ url_for('static', filename='fon.jpg') }}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container
+        {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: 0 auto;
+            width: 60%;
+            padding: 10px;
+            background-color: #4701B7;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .message {
+            margin-top: 12px;
+            text-align: center;
+            color: #ff0000;
+        }
+
+        .register-button{
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+            width: 50%;
+            padding: 10px 20px;
+            background-color: #477998;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Перевыпуск сертификата</h1>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class="flashes">
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        <form action="/recovery" method="POST">
+            <input type="email" name="email" id="emailInput" placeholder="Email" required>
+            <input type="password" name="password" id="PasswordInput" placeholder="Пароль" required>
+            <input type="submit" value="Скачать сертификат">
+            <a href="/register_end" class="register-button" id="registerLink">Вернуться</a>
+        </form>
+    </div>
+</body>
+</html>

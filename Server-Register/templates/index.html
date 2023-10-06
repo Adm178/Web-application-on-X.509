@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Invest Company</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <style>
+    {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body
+    {
+      background-image: url("{{ url_for('static', filename='fon.jpg') }}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: #f4f4f4;
+      font-family: Arial, sans-serif;
+    }
+
+    .container
+    {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1
+    {
+      text-align: center;
+    }
+
+    .button-container
+    {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .button-container .button1
+    {
+      padding: 10px 30px;
+      background-color: #477998;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+
+      text-decoration: none;
+    }
+
+    .button-container .button2
+    {
+      padding: 10px 20px;
+      background-color: #477998;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+
+      text-decoration: none;
+    }
+    .container .download
+    {
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4701B7;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-left: 95px;
+      text-decoration: none;
+    }
+
+    .button-container .button:hover {
+      background-color: #557FBB;
+    }
+            .recovery-button
+        {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #337ab7;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .recovery-button:hover {
+            background-color: #23527c;
+        }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Добро пожаловать на Invest Company</h1>
+    <div class="button-container">
+      <a href="/login" class="button1">Войти</a>
+      <a href="/register" class="button2">Зарегистрироваться</a>
+    </div>
+    <form method="POST" action="/download_CA_cert">
+        <button type="submit" class="download" value=>Скачать<br>корневой сертификат</button>
+    </form>
+    <p>Утеряли сертификат? <a href="/recovery" class="recovery-button">Перевыпустить</a></p>
+  </div>
+</body>
+</html>
